@@ -4,13 +4,13 @@ use strict;
 use 5.008;
 use base 'Catalyst::View';
 use HTML::Template::Pro;
-our $VERSION = '0.03';
+our $VERSION = '0.05';
 
 sub process {
     my ( $self, $c ) = @_;
 
     my $filename = $c->stash->{template}
-        || $c->req->action . $self->config->{template_extension};
+        || $c->req->action . $self->{template_extension};
     my $body = $self->render( $c, $filename );
 
     unless ( $c->response->headers->content_type ) {
@@ -45,6 +45,7 @@ sub render {
     $template->param(
         base => $c->req->base,
         name => $c->config->{name},
+        %{ $template_params }
     );
 
     my $output;
@@ -102,7 +103,7 @@ class.
 =item process
 
 Renders the template specified in C<< $c->stash->{template} >> or C<< 
-$c->request->action . $self->config->{template_extension} >>.
+$c->request->action . $self->{template_extension} >>.
 Template params are set up from the contents of C<< $c->stash >>,
 augmented with C<base> set to C<< $c->req->base >> and C<name> to 
 C<< $c->config->{name} >>.  Output is stored in C<< $c->response->body >>.

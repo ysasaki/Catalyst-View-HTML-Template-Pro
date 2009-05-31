@@ -1,5 +1,8 @@
 Revision history for Perl extension Catalyst::View::HTML::Template::Pro
 
+0.05  Sun May 31 17:18:00 2009
+        - fix bug getting default filename
+        - fix bug in render method
 0.04  Sun May 31 17:12:00 2009
         - fix perldoc
 0.03  Sun May 31 15:00:00 2009
