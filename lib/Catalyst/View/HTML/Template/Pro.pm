@@ -102,10 +102,17 @@ class.
 =item process
 
 Renders the template specified in C<< $c->stash->{template} >> or C<< 
-$c->request->action . $self->config->{default_extension} >>.
+$c->request->action . $self->config->{template_extension} >>.
 Template params are set up from the contents of C<< $c->stash >>,
 augmented with C<base> set to C<< $c->req->base >> and C<name> to 
 C<< $c->config->{name} >>.  Output is stored in C<< $c->response->body >>.
+
+=item render
+
+Renders the given template and returns output. Template params are set up
+either from the contents of  C<%$args> if $args is a hashref, or C<< $c->stash >>,
+augmented with C<base> set to C<< $c->req->base >> and C<name> to
+C<< $c->config->{name} >>.
 
 =item config
 
@@ -127,12 +134,5 @@ Yoshihiro Sasaki, C<aloelight at gmail.com>
 
 This program is free software, you can redistribute it and/or modify it
 under the same terms as Perl itself.
-
-=item render
-
-Renders the given template and returns output. Template params are set up
-either from the contents of  C<%$args> if $args is a hashref, or C<< $c->stash >>,
-augmented with C<base> set to C<< $c->req->base >> and C<name> to
-C<< $c->config->{name} >>.
 
 =cut
