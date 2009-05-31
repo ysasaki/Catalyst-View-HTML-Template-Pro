@@ -1,0 +1,9 @@
+Revision history for Perl extension Catalyst::View::HTML::Template::Pro
+
+0.03  Sun May 31 15:00:00 2009
+        - add Catalyst::Helper::View::HTML::Template::Pro
+0.02  Sun May 31 12:00:00 2009
+        - change default filename like C::V:TT
+0.01  Sat May 30 15:42:29 2009
+        - original version
+        - copy from Catalyst::View::HTML::Template
